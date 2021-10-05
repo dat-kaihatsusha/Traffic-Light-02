@@ -14,8 +14,8 @@ class TrafficLight extends Component {
     };
 
 
-    setInterval(()=>{
-      this.setState({currentColor: this.getNextColor(this.state.currentColor)});
+    setInterval(() => {
+      this.setState({ currentColor: this.getNextColor(this.state.currentColor) });
     }, 1000);
   }
 
@@ -27,15 +27,16 @@ class TrafficLight extends Component {
     }
   }
   render() {
+    const { currentColor } = this.state;
     return <div className="TrafficLight">
       <div className={classNames('bulb', 'red', {
-        active: this.state.currentColor === RED
+        active: currentColor === RED
       })}></div>
       <div className={classNames('bulb', 'orange', {
-        active: this.state.currentColor === ORANGE
+        active: currentColor === ORANGE
       })}></div>
       <div className={classNames('bulb', 'green', {
-        active: this.state.currentColor === GREEN
+        active: currentColor === GREEN
       })}></div>
     </div>;
   }
